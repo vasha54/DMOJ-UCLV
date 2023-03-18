@@ -1,115 +1,85 @@
-//DMOJ - Closing the Farm
-//Teoría de grafos : Componentes conexa
-
+/**
+ * DMOJ - Closing the Farm
+ * Temáticas: Estructura de Datos + Disjoint Set
+ *
+ *  Idea: Saber en cada momento si el grafo es conexo o no sabiendo que existen
+ *  granjas que se va a quitar
+ */
 #include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 #include <algorithm>
-#include <stdio.h>
-#include <math.h>
-#include <stack>
-#include <set>
-#include <queue>
-#include <string>
-#include <string.h>
-#include <map>
-#include <complex>
-#include <cmath>
-#include <map>
-#include <utility>
-#define MID (left+right)/2
-#define MOD 100000007
-#define MAX 3010
-#define MAX_N 100001
-#define MAX_ROW 1010
-#define MAX_COLUMN MAX_ROW
-#define MAX_NODE 2010
-#define MAX_EDGE 55000
-#define MAXTREE (MAX << 2)
-#define ULL unsigned long long
-#define LL long long
-#define NUMBER LL
 #define ENDL '\n'
-#define SYMBOL '#'
-#define REP(i,n) for(int i=0;i<(int)n;++i)
-#define REP1_N(i,n) for(int i=1;i<=(int)n;++i)
-#define FOR(i,c) for(__typeof((c).begin())i=(c).begin();i!=(c).end();++i)
-#define ALL(c) (c).begin(), (c).end()
-#define LINE_BLANK cout<<ENDL;
-#define OPERATOR_INC "++"
-#define OPERATOR_DEC "--"
-#define MAXELEMENT 260
-#define MAXCAPACITYKNAPSACK 1010
-#define EPS 1e-9
-#define OO 1000000000
-#define RADIUS 1.50000
+#define MAX 110
 using namespace std;
 
+struct DisjoinSet{
 
-struct Node{
-	vector<int> neigborns;
+	vector<int> parent,sizes;
+	int ncomponents;
+	DisjoinSet(int n) : parent(n),sizes(n){
+		for(int i = 0; i < n; i++)
+			sizes[parent[i] = i] = 1;
+		ncomponents = n;
+	}
+
+	int root(int x){
+		return x == parent[x] ? x : root(parent[x]);
+	}
+
+	void join(int a,int b){
+		int x = root(a);
+		int y = root(b);
+		if(x == y)
+			return;
+		if(sizes[x] < sizes[y])
+			swap(x,y);
+		parent[y] = x;
+		sizes[x] += sizes[y];
+		ncomponents--;
+	}
+
 };
 
-Node graphs[MAX];
-int nnodes,npath,nfarmClose,nvisit,nodeA,nodeB;
-bool visit[MAX],farmClose[MAX];
-set<int> nodeActive;
+int main() {
 
-bool connectFull(int _nodeStart){
-
-	fill(visit,visit+MAX,false);
-	visit[_nodeStart]=true;
-	nvisit=1;
-	int nCurrent,nNext;
-	stack<int> dfs;
-	dfs.push(_nodeStart);
-
-	while(!dfs.empty()){
-		nCurrent=dfs.top();
-		dfs.pop();
-		FOR(it,graphs[nCurrent].neigborns){
-			nNext=(*it);
-			if(!visit[nNext] && !farmClose[nNext]){
-				nvisit++;
-				visit[nNext]=true;
-				dfs.push(nNext);
-			}
-		}
-	}
-
-	return (nfarmClose+nvisit==nnodes);
-}
-
-int main(){
-
-
-	//freopen("Input.txt","r",stdin);
-	//freopen("Output.txt","w",stdout);
-	cout.setf(ios::fixed,ios::floatfield);
-	cout.precision(2);
 	ios_base::sync_with_stdio(0);
-	std::cin.tie(0);
+	cin.tie(0);
 
-	while(cin>>nnodes>>npath){
-		REP1_N(i,nnodes){
-			graphs[i].neigborns.clear();
-			nodeActive.insert(i);
+	cout.setf(ios::fixed, ios::floatfield);
+	cout.precision(0);
+
+	int nnodes,npaths;
+	cin >> nnodes >> npaths;
+
+	vector<vector<int> > graph(nnodes+1);
+
+		for(int i = 0 ; i <npaths; i++){
+			int a,b;
+			cin >> a >> b;
+			graph[a].push_back(b);
+			graph[b].push_back(a);
 		}
-		REP(i,npath){
-			cin>>nodeA>>nodeB;
-			graphs[nodeA].neigborns.push_back(nodeB);
-			graphs[nodeB].neigborns.push_back(nodeA);
+
+		vector<int> remove(nnodes+1);
+		for(int i = 1; i <= nnodes; i++){
+			cin >> remove[i];
 		}
-		fill(farmClose,farmClose+MAX,false);
-		nfarmClose=0;
-		REP1_N(i,nnodes){
-			connectFull((*nodeActive.begin()))==true ?cout<<"YES"<<ENDL : cout<<"NO"<<ENDL;
-			cin>>nodeA;
-			farmClose[nodeA]=true;
-			nodeActive.erase(nodeA);
-			nfarmClose++;
+
+		DisjoinSet dsu(nnodes);
+		vector<bool> answer(nnodes+1,false),used(nnodes+1,false);
+		answer[nnodes] = true;
+		used[remove[nnodes]] = true;
+		for(int i = nnodes - 1; i >= 1; i--){
+			int node = remove[i];
+			for(auto x : graph[node])
+				if(used[x])
+					dsu.join(node,x);
+			used[node] = true;
+			answer[i] = (dsu.ncomponents == i);
 		}
-	}
+
+		for(int i = 1; i <= nnodes; i++)
+			cout << (answer[i] ? "YES" : "NO") << ENDL;
 
 	return 0;
 }
-
