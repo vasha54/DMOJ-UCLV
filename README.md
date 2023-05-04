@@ -1,2 +1,2 @@
 # DMOJ-UCLV
-Soluciones del Jurado DMOJ - UCLV https://dmoj.uclv.edu.cu/
+Soluciones  del problemas publicados en el Juez en Línea DMOJ - UCLV https://dmoj.uclv.edu.cu/
