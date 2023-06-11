@@ -1,10 +1,10 @@
-#DMOJ-UCLV
+# DMOJ-UCLV
 Soluciones de los problemas publicados en el Juez en Línea DMOJ - UCLV https://dmoj.uclv.edu.cu/
 
 
-##Programación de Dinámica 
+## Programación de Dinámica 
 
-###Prefix Sum
+### Prefix Sum
 
 Tareas de Impacto
 
@@ -13,14 +13,14 @@ Breed Counting
 Luciérnaga
 
 
-##Teoria de Juego
+## Teoria de Juego
 
 ###Algoritmo Win-Loss
 
 Piedras
 
-##Estructura de Datos 
+## Estructura de Datos 
 
-###Range Tree + Lazy Propagation
+### Range Tree + Lazy Propagation
 
 El Arado Robot
