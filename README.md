@@ -15,7 +15,7 @@ Luciérnaga
 
 ## Teoria de Juego
 
-###Algoritmo Win-Loss
+### Algoritmo Win-Loss
 
 Piedras
 
