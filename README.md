@@ -1,6 +1,13 @@
 # DMOJ-UCLV
 Soluciones de los problemas publicados en el Juez en Línea DMOJ - UCLV https://dmoj.uclv.edu.cu/
 
+## Teoria de Grafos
+
+### Algoritmo de Dijkstra
+
+Princesa Ciruela
+
+
 
 ## Programación de Dinámica 
 
@@ -12,6 +19,9 @@ Breed Counting
 
 Luciérnaga
 
+¿Otro problema de segment tree?
+
+
 
 ## Teoria de Juego
 
@@ -19,8 +29,21 @@ Luciérnaga
 
 Piedras
 
+
+
 ## Estructura de Datos 
 
 ### Range Tree + Lazy Propagation
 
 El Arado Robot
+
+### Árbol de Fenwick (ABI, BIT)
+
+Ventas de casas
+
+
+## Add-Hoc
+
+### Entrada simple
+
+Horas y Minutos
