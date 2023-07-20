@@ -7,6 +7,14 @@ Soluciones de los problemas publicados en el Juez en Línea DMOJ - UCLV https://
 
 Princesa Ciruela
 
+### Algoritmo de Kruskal
+
+Árbol de palabras
+
+### Algoritmo de Prim
+
+Árbol de palabras
+
 
 
 ## Programación de Dinámica 
