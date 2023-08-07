@@ -55,3 +55,10 @@ Ventas de casas
 ### Entrada simple
 
 Horas y Minutos
+
+
+## Geomtría
+
+### Sweep Line
+
+Dia nublado
