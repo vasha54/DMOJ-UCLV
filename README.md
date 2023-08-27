@@ -1,11 +1,6 @@
 # DMOJ-UCLV
 Soluciones de los problemas publicados en el Juez en Línea DMOJ - UCLV https://dmoj.uclv.edu.cu/
 
-## Programación Dinámica
-
-### LIS
-Calentamiento Global
-
 
 ## Teoria de Grafos
 
@@ -34,6 +29,9 @@ Breed Counting
 Luciérnaga
 
 ¿Otro problema de segment tree?
+
+### LIS
+Calentamiento Global
 
 
 
