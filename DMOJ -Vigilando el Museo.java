@@ -3,10 +3,13 @@
  * Temáticas: Estructura de Datos + Fenwick Tree
  *  
  *  Idea: Cada cámara aporta una cantidad de N de posiciones seguras. La camara
- *  inesima aporta una cantidad que es igual a la cantidad de caramas que se 
+ *  inesima aporta una cantidad que es igual a la cantidad de camaras que se 
  *  ubican posterior a ella (las i+1 en adelante) y que su columna sea menor o
  *  igual que la columna de la camara i. La entrada de las posiciones de las 
- *  camaras deben ser procesadas en el orden inverso que fueron aportadas.
+ *  camaras deben ser procesadas en el orden inverso que fueron aportadas para
+ *  de esta forma cuando proceso una camara ya procese las camaras que estan en filas
+ *  posteriores a ella y puedo conocer cuantas tienen una columna menor que ella (con ayuda del Fenwick Tree)
+ *  y dicha cantidad será la cantidad de lugares que aportará la camara que se procesa
  */
 
 import java.io.*;
