@@ -1,3 +1,4 @@
+
 /**
  * DMOJ - Sucesor y Predecesor
  * Temática: Teoria de números + Sistema de numeración 
